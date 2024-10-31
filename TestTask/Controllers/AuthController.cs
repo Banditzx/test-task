@@ -17,7 +17,7 @@
     /// </summary>
     /// <seealso cref="TestTask.Api.Controllers.BaseController" />
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class AuthController : BaseController
     {
         private readonly IAccountService _accountService;
@@ -45,9 +45,9 @@
         /// AccessModel.
         /// </returns>
         [HttpPost("sign-in")]
-        public async Task<AccessDto> SingInAsync(SignInDto signInDto)
+        public async Task<AccessDto> SingInAsync(SignInDto signIn)
         {
-            var user = await _accountService.UserValidation(signInDto.Email, signInDto.Password);
+            var user = await _accountService.UserValidation(signIn.Email, signIn.Password);
             if (user != null)
             {
                 var claims = new List<Claim>
@@ -92,13 +92,13 @@
         /// UserModel.
         /// </returns>
         [HttpPost("sign-up")]
-        public async Task<AccountDto> SingUpAsync(SignUpDto signUpDto)
+        public async Task<AccountDto> SingUpAsync(SignUpDto signUp)
         {
             var account = await _accountService.CreateUser(new CreateAccountModel
             {
-                Email = signUpDto.Email.Trim().ToLower(),
-                Password = signUpDto.Password,
-                ProvinceId = signUpDto.ProvinceId,
+                Email = signUp.Email.Trim().ToLower(),
+                Password = signUp.Password,
+                ProvinceId = signUp.ProvinceId,
             });
 
             return Mapper.Map<AccountDto>(account);

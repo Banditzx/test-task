@@ -1,8 +1,8 @@
 ﻿namespace TestTask.Services.Services
 {
-    using System.Collections.Generic;
     using System.Threading.Tasks;
     using TestTask.Domain.Models;
+    using TestTask.Domain.Models.Pagination;
     using TestTask.Infrastructure.Interfaces.Repositories;
     using TestTask.Infrastructure.Interfaces.Services;
 
@@ -24,15 +24,15 @@
         }
 
         /// <inheritdoc/>
-        public async Task<IEnumerable<CountryModel>> GetCountriesAsync(string countryName)
+        public async Task<PaginatedResult<CountryModel>> GetCountriesAsync(PaginationParameters pagination)
         {
-            return await _locationRepository.GetCountriesAsync(countryName);
+            return await _locationRepository.GetCountriesAsync(pagination);
         }
 
         /// <inheritdoc/>
-        public async Task<IEnumerable<ProvinceModel>> GetProvinciesByCountryIdAsync(int countryId, string name)
+        public async Task<PaginatedResult<ProvinceModel>> GetProvinciesByCountryIdAsync(int countryId, PaginationParameters pagination)
         {
-            return await _locationRepository.GetProvinciesByCountryIdAsync(countryId, name);
+            return await _locationRepository.GetProvinciesByCountryIdAsync(countryId, pagination);
         }
     }
 }

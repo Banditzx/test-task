@@ -3,6 +3,7 @@
     using AutoMapper;
     using TestTask.Domain.Entities;
     using TestTask.Domain.Models;
+    using TestTask.Domain.Models.Pagination;
 
     /// <summary>
     /// The AutoRepositoryMapping.
@@ -24,11 +25,17 @@
         {
             CreateMap<CountryEntity, CountryModel>()
                 .ReverseMap();
+
+            CreateMap<PaginatedResult<CountryEntity>, PaginatedResult<CountryModel>>()
+                .ReverseMap();
         }
 
         private void InitProvince()
         {
             CreateMap<ProvinceEntity, ProvinceModel>()
+                .ReverseMap();
+
+            CreateMap<PaginatedResult<ProvinceEntity>, PaginatedResult<ProvinceModel>>()
                 .ReverseMap();
         }
 

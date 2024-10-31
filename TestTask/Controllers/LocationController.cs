@@ -2,6 +2,7 @@
 {
     using AutoMapper;
     using Microsoft.AspNetCore.Mvc;
+    using TestTask.Domain.Models.Pagination;
     using TestTask.Infrastructure.Dto.Support;
     using TestTask.Infrastructure.Interfaces.Repositories;
     using TestTask.Infrastructure.Interfaces.Services;
@@ -11,7 +12,7 @@
     /// </summary>
     /// <seealso cref="TestTask.Api.Controllers.BaseController" />
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class LocationController : BaseController
     {
         private readonly ILocationService _locationService;
@@ -34,11 +35,11 @@
         /// </summary>
         /// <param name="name">The name.</param>
         /// <returns>IEnumerable CountryDto.</returns>
-        [HttpGet("country/list")]
-        public async Task<IEnumerable<CountryDto>> GetCountriesByName(string name)
+        [HttpPost("get/country/list")]
+        public async Task<PaginatedResult<CountryDto>> GetCountriesByName([FromBody] PaginationParameters pagination)
         {
-            var countries = await _locationService.GetCountriesAsync(name);
-            return Mapper.Map<IEnumerable<CountryDto>>(countries);
+            var countries = await _locationService.GetCountriesAsync(pagination);
+            return Mapper.Map<PaginatedResult<CountryDto>>(countries);
         }
 
         /// <summary>
@@ -47,11 +48,11 @@
         /// <param name="countryId">The country identifier.</param>
         /// <param name="name">The name.</param>
         /// <returns>IEnumerable ProvinceDto.</returns>
-        [HttpGet("province/list")]
-        public async Task<IEnumerable<ProvinceDto>> GetProvinciesByName(int countryId, string name)
+        [HttpPost("get/province/list")]
+        public async Task<PaginatedResult<ProvinceDto>> GetProvinciesByName(int countryId, [FromBody] PaginationParameters pagination)
         {
-            var provincies = await _locationService.GetProvinciesByCountryIdAsync(countryId, name);
-            return Mapper.Map<IEnumerable<ProvinceDto>>(provincies);
+            var provincies = await _locationService.GetProvinciesByCountryIdAsync(countryId, pagination);
+            return Mapper.Map<PaginatedResult<ProvinceDto>>(provincies);
         }
     }
 }

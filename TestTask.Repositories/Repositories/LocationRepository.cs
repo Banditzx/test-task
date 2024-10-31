@@ -4,6 +4,8 @@
     using Microsoft.EntityFrameworkCore;
     using TestTask.Domain.Entities;
     using TestTask.Domain.Models;
+    using TestTask.Domain.Models.Pagination;
+    using TestTask.Infrastructure.Extensions;
     using TestTask.Infrastructure.Interfaces.Services;
 
     /// <summary>
@@ -34,17 +36,17 @@
         }
 
         /// <inheritdoc/>
-        public async Task<IEnumerable<CountryModel>> GetCountriesAsync(string countryName)
+        public async Task<PaginatedResult<CountryModel>> GetCountriesAsync(PaginationParameters pagination)
         {
-            var countries = await GetBy(x => x.Name.Contains(countryName)).ToListAsync();
-            return _mapper.Map<IEnumerable<CountryModel>>(countries);
+            var countries = await GetAll().Paginated(pagination);
+            return _mapper.Map<PaginatedResult<CountryModel>>(countries);
         }
 
         /// <inheritdoc/>
-        public async Task<IEnumerable<ProvinceModel>> GetProvinciesByCountryIdAsync(int countryId, string name)
+        public async Task<PaginatedResult<ProvinceModel>> GetProvinciesByCountryIdAsync(int countryId, PaginationParameters pagination)
         {
-            var country = await GetBy(x => x.Id == countryId && x.Name.Contains(name)).Include(x => x.Provinces).FirstOrDefaultAsync();
-            return _mapper.Map<IEnumerable<ProvinceModel>>(country.Provinces);
+            var provincies = await _storeEntities.Provinces.Where(x => x.CountryId == countryId).Paginated(pagination);
+            return _mapper.Map<PaginatedResult<ProvinceModel>>(provincies);
         }
     }
 }

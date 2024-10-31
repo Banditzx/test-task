@@ -12,7 +12,7 @@
     /// <seealso cref="TestTask.Api.Controllers.BaseController" />
     [Authorize]
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class AccountController : BaseController
     {
         private readonly IAccountService _accountService;
@@ -31,7 +31,7 @@
         /// Gets me.
         /// </summary>
         /// <returns>AccountDto.</returns>
-        [HttpGet("me")]
+        [HttpGet("get/me")]
         public async Task<AccountDto> GetMe()
         {
             var account = await GetCurrentProfile();
