@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <span class="fs-2 fw-bold mb-1">Step: 2</span>
+            <form [formGroup]="locationForm">
+                <div class="row">
+                    <div class="col-12">
+                        <app-location [items]="countries?.items || []" formControlName="countryId" [zIndex]="1010" placeholder="Open this select menu" [submitted]="submitted" (locationEvent)="loadMoreCountries()"></app-location>
+                        <div *ngIf="submitted && locationControls['countryId'].errors" class="is-invalid-text ms-2">Country is a required field.</div>
+                    </div>
+                    <div class="col-12 mt-2">
+                        <app-location [items]="provincies?.items || []" formControlName="provinceId" [zIndex]="1005" placeholder="Open this select menu" [submitted]="submitted" (locationEvent)="loadMoreProvincies()"></app-location>
+                        <div *ngIf="submitted && locationControls['provinceId'].errors" class="is-invalid-text ms-2">Province is required field.</div>
+                    </div>
+                    <div class="col-12 mt-2">
+                        <button type="button" class="btn btn-secondary w-100" (click)="signUp()" [disabled]="isProcessing">
+                            Save
+                            <div class="spinner-border spinner" role="status" *ngIf="isProcessing">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>

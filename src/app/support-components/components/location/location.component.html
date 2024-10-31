@@ -1,0 +1,6 @@
+<div class="autocomplete-container" [ngStyle]="{'z-index': zIndex}">
+    <input type="text" class="form-control p-3" [(ngModel)]="name" placeholder="{{placeholder}}" [disabled]="isDisabled" [ngClass]="{ 'is-invalid': submitted && !locationId }" (click)="toggleDropdown()"/>
+    <ul class="autocomplete-dropdown" *ngIf="isDropdownOpen && items.length" app-scroller (scrolledToBottom)="loadMore()">
+        <li *ngFor="let option of items" (click)="selectOption(option)" aria-hidden="true">{{ option.name }}</li>
+    </ul>
+</div>

@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <span class="fs-2 fw-bold mb-1">Step: 1</span>
+            <form [formGroup]="signUpForm">
+                <div class="form-floating mb-2">
+                    <input type="email" class="form-control rounded-3" id="signUpInput" formControlName="email" placeholder="name@example.com" [ngClass]="{ 'is-invalid': submitted && signUpControls['email'].errors }" autocomplete="email">
+                    <label for="signUpInput">Email</label>
+                    <div *ngIf="submitted && signUpControls['email'].errors" class="is-invalid-text ms-2">Login must be a valid email.</div>
+                </div>
+                <div class="form-floating mb-2">
+                    <input type="password" class="form-control rounded-3" id="password" formControlName="password" placeholder="password" [ngClass]="{ 'is-invalid': submitted && signUpControls['password'].errors }" autocomplete="password">
+                    <label for="password">Password</label>
+                    <div *ngIf="submitted && signUpControls['password'].errors" class="is-invalid-text ms-2">Must contain min 1 digit and min 1 letter.</div>
+                </div>
+                <div class="form-floating mb-2">
+                    <input type="password" class="form-control rounded-3" id="confirmPassword" formControlName="confirmPassword" placeholder="password" [ngClass]="{ 'is-invalid': submitted && signUpControls['confirmPassword'].errors }" autocomplete="password">
+                    <label for="confirmPassword">Confirm password</label>
+                    <div *ngIf="submitted && signUpControls['confirmPassword'].errors" class="is-invalid-text ms-2">Must be the same with the field ”password”.</div>
+                </div>
+                <div class="form-floating mb-2">
+                    <input type="checkbox" class="ms-2 me-2" formControlName="isAgree">Agree to work for food
+                </div>
+                <button type="button" class="btn btn-secondary w-100" (click)="goToStepTwo()">Go to step 2</button>
+            </form>
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>
