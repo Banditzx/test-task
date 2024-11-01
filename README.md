@@ -1,2 +1,2 @@
-# dev-web - Web Application
-# dev-backend - Api Service
+dev-web - Web Application
+dev-api - Api Service
