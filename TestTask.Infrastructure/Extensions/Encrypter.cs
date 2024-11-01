@@ -12,7 +12,7 @@
         /// Encrypts the sha1.
         /// </summary>
         /// <param name="value">The value.</param>
-        /// <returns></returns>
+        /// <returns>string.</returns>
         public static string EncryptSha1(this string value)
         {
             return Encrypt(value, string.Empty, SHA1.Create());
@@ -23,7 +23,7 @@
         /// </summary>
         /// <param name="value">The value.</param>
         /// <param name="salt">The salt.</param>
-        /// <returns></returns>
+        /// <returns>string.</returns>
         public static string EncryptSha1(this string value, string salt)
         {
             return Encrypt(value, salt, SHA1.Create());
@@ -33,7 +33,7 @@
         /// Encrypts the sha512.
         /// </summary>
         /// <param name="value">The value.</param>
-        /// <returns></returns>
+        /// <returns>string.</returns>
         public static string EncryptSha512(this string value)
         {
             return Encrypt(value, string.Empty, SHA512.Create());
@@ -44,7 +44,7 @@
         /// </summary>
         /// <param name="value">The value.</param>
         /// <param name="salt">The salt.</param>
-        /// <returns></returns>
+        /// <returns>string.</returns>
         public static string EncryptSha512(this string value, string salt)
         {
             return Encrypt(value, salt, SHA512.Create());
@@ -54,7 +54,7 @@
         /// Encrypts the m d5.
         /// </summary>
         /// <param name="value">The value.</param>
-        /// <returns></returns>
+        /// <returns>string.</returns>
         public static string EncryptMD5(this string value)
         {
             return Encrypt(value, string.Empty, MD5.Create());

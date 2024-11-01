@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestTask.Api", "TestTask.Api.csproj", "{BE20A60F-627C-4EB7-8289-2136EDF4E4E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestTask.Api", "TestTask.Api.csproj", "{BE20A60F-627C-4EB7-8289-2136EDF4E4E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestTask.Infrastructure", "..\TestTask.Infrastructure\TestTask.Infrastructure.csproj", "{897C7A27-3BAE-4D58-8373-043E36F4AC48}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestTask.Infrastructure", "..\TestTask.Infrastructure\TestTask.Infrastructure.csproj", "{897C7A27-3BAE-4D58-8373-043E36F4AC48}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestTask.Services", "..\TestTask.Services\TestTask.Services.csproj", "{66C48007-4DDB-44A3-A968-2465E9685E95}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestTask.Services", "..\TestTask.Services\TestTask.Services.csproj", "{66C48007-4DDB-44A3-A968-2465E9685E95}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestTask.Domain", "..\TestTask.Domain\TestTask.Domain.csproj", "{98E8F623-393C-45F7-A6A5-AF94616E7407}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestTask.Domain", "..\TestTask.Domain\TestTask.Domain.csproj", "{98E8F623-393C-45F7-A6A5-AF94616E7407}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestTask.Repositories", "..\TestTask.Repositories\TestTask.Repositories.csproj", "{46C66735-F9E5-4C71-9B66-4FC3A25287DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestTask.Repositories", "..\TestTask.Repositories\TestTask.Repositories.csproj", "{46C66735-F9E5-4C71-9B66-4FC3A25287DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestTask.Tests", "..\TestTask.Tests\TestTask.Tests.csproj", "{26B342BE-BF57-46DC-8412-0311478EF4B3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{46C66735-F9E5-4C71-9B66-4FC3A25287DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46C66735-F9E5-4C71-9B66-4FC3A25287DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46C66735-F9E5-4C71-9B66-4FC3A25287DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26B342BE-BF57-46DC-8412-0311478EF4B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26B342BE-BF57-46DC-8412-0311478EF4B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26B342BE-BF57-46DC-8412-0311478EF4B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26B342BE-BF57-46DC-8412-0311478EF4B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
