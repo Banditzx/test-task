@@ -22,7 +22,7 @@
                 <div class="form-floating mb-2">
                     <input type="checkbox" class="ms-2 me-2" formControlName="isAgree">Agree to work for food
                 </div>
-                <button type="button" class="btn btn-secondary w-100" (click)="goToStepTwo()">Go to step 2</button>
+                <button type="button" class="btn btn-secondary w-100" [disabled]="!signUpForm.get('isAgree')?.value" (click)="goToStepTwo()">Go to step 2</button>
             </form>
         </div>
         <div class="col-3"></div>
